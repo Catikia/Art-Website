@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang= "en">
+	<head>
+	<!--Valentine's Art Gallery
+		Author: Catikia
+		Date: 8/28/2016
+		-->
+		<title>Valentine's Art Gallery</title>
+		<meta charset="utf-8">
+		<meta name = "viewport"
+			content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="valentineart.css"> <!--links to stylesheet-->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		<script src="modernizr.custom.05819.js"></script> <!--a library used to deliver consistency across different browsers, versions, and platforms-->
+	</head>
+	<body>
+	<div id="wrapper">
+		<header>
+		<!--Name at top of page-->
+		<h1><img src="images/banner.jpg" alt="Valentine's Art Gallery" height="200" width="960"></h1>
+		</header>
+		<nav>
+		<!--links to other pages-->
+			<div id='cssmenu'>
+				<ul class="mainmenu"> <!--Main menu links-->
+					<li><a href="index.html">Home</a></li><!--highlighted page-->
+					<li class='has-sub'><a href="gallery.html">Gallery&nbsp;</a>
+						<ul> <!--Sub menu or drop-down menu links-->
+							<li><a href="sketch.html">Sketch Gallery</a></li>
+							<li><a href="paint.html">Paint Gallery</a></li>
+							<li><a href="photo.html">Photo Gallery</a></li>
+							<li><a href="mixed.html">Mixed Media Gallery</a></li>
+						</ul>
+					</li>
+					<li class='active has-sub'><a href="contact.html">Contact</a>
+						<ul> <!--Sub menu or drop-down menu link-->
+							<li><a href="calculator.html">Commission Calculator</a></li>
+							<li><a href="order.html">Commission Request Form</a></li>
+							<li><a href="favart.html">Favorite Art?</a></li>
+						</ul>
+					</li><!--highlighted page-->
+					<li><a href="sitemap.html">Sitemap</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="fullcol">
+		<main>
+		<!--info about website-->
+		<h2>
+		   Calculator to estimate the price of a custom artwork.
+		</h2>
+
+			<article>
+      <h4>Pick a medium for your artwork:</h4>
+      <form>
+	  <!-- check boxes for the user to pick a medium -->
+         <input type="checkbox" id="pencil" value=".50" />
+         <label for="pencil">Colored Pencil</label>
+         <input type="checkbox" id="charcoal" value=".50" />
+         <label for="charcoal">Charcoal</label>
+         <input type="checkbox" id="pastels" value=".50" />
+         <label for="pastels">Pastels</label>
+         <input type="checkbox" id="acrylic" value=".75" />
+         <label for="acrylic">Acrylic Paint</label>
+         <input type="checkbox" id="oil" value=".75" />
+         <label for="oil">Oil Paint</label>
+         <input type="checkbox" id="mixed" value=".75" />
+		 <label for="mixed">Mixed Media</label>
+
+	  <h4>Pick a size for your artwork:</h4>
+	  <!-- check boxes for the user to pick a size -->
+         <input type="checkbox" id="size8x10" value="80" />
+         <label for="size8x10">8 x 10</label>
+         <input type="checkbox" id="size11x14" value="154" />
+         <label for="size11x14">11 x 14</label>
+         <input type="checkbox" id="size16x20" value="320" />
+         <label for="size16x20">16 x 20</label>
+         <input type="checkbox" id="size24x36" value="864" />
+         <label for="size24x36">24 x 36</label>
+         <input type="checkbox" id="size36x48" value="1728" />
+         <label for="size36x48">36 x 48</label>
+
+	  <br><br>
+	  <input type="button" id="calcPrice" value="Submit" /> <!--button to click and calculate price-->
+	  <br><br>
+		<fieldset>
+			<h4 id="headingOrError">&nbsp;</h4>
+				<p id="orderTotal">&nbsp;</p> <!--displays price-->
+        </fieldset>
+		</form>
+   </article>
+
+   <script>
+      function calcArtPrice() { //calculates a price for an art piece with user input of medium and size.
+         var mediumTotal = 0; //resets mediumTotal to 0 incase the user tries to click submit again
+		 var sizeTotal = 0; //resets sizeTotal to 0 incase the user tries to click submit again
+		 // declares variables
+         var pencil = document.getElementById("pencil");
+         var charcoal = document.getElementById("charcoal");
+         var pastels = document.getElementById("pastels");
+         var acrylic = document.getElementById("acrylic");
+         var oil = document.getElementById("oil");
+         var mixed = document.getElementById("mixed");
+		 var size8x10 = document.getElementById("size8x10");
+         var size11x14 = document.getElementById("size11x14");
+         var size16x20 = document.getElementById("size16x20");
+         var size24x36 = document.getElementById("size24x36");
+         var size36x48 = document.getElementById("size36x48");
+		 //checks to see if checkbox is selected, adds amount to mediumTotal if it is.
+         (pencil.checked) ? (mediumTotal += .50) : (mediumTotal += 0);
+         (charcoal.checked) ? (mediumTotal += .50) : (mediumTotal += 0);
+         (pastels.checked) ? (mediumTotal += .50) : (mediumTotal += 0);
+         (acrylic.checked) ? (mediumTotal += .75) : (mediumTotal += 0);
+         (oil.checked) ? (mediumTotal += .75) : (mediumTotal += 0);
+         (mixed.checked) ? (mediumTotal += .75) : (mediumTotal += 0);
+		 //checks to see if checkbox is selected, adds amount to sizeTotal if it is
+         (size8x10.checked) ? (sizeTotal += 80) : (sizeTotal += 0);
+         (size11x14.checked) ? (sizeTotal += 154) : (sizeTotal += 0);
+         (size16x20.checked) ? (sizeTotal += 320) : (sizeTotal += 0);
+         (size24x36.checked) ? (sizeTotal += 864) : (sizeTotal += 0);
+         (size36x48.checked) ? (sizeTotal += 1728) : (sizeTotal += 0);
+         var salesTaxRate = 1.08; //sets a tax rate
+         var orderTotal = ((mediumTotal * sizeTotal) * salesTaxRate); //calculates the price of the art piece as selected
+		 if (mediumTotal == 0) { //error checks to make sure atleast 1 box is checked in the medium section.
+			document.getElementById("headingOrError").innerHTML = "Error!"; //displays error below submit button.
+			document.getElementById("orderTotal").innerHTML = "Please select an art medium and click submit."; //displays how to fix user error.
+		 }
+		 else if (sizeTotal == 0) { //error checks to make sure atleast 1 box is checked in the size section.
+			document.getElementById("headingOrError").innerHTML = "Error!"; //displays error below submit button.
+			document.getElementById("orderTotal").innerHTML = "Please select a size for your art piece and click submit."; //displays how to fix user error.
+		 }
+		 else {
+			document.getElementById("headingOrError").innerHTML = "Your Estimated Price is:"; //Heading for total displayed below submit button.
+			document.getElementById("orderTotal").innerHTML = orderTotal.toFixed(2); //shows orderTotal and limits the number to always being 2 decimals
+         }
+      }
+		 // add backward compatible event listener to submit button.
+		 var submitButton = document.getElementById("calcPrice");
+		 if (submitButton.addEventListener) {
+		    submitButton.addEventListener("click", calcArtPrice, false); //Calls the calcArtPrice function everytime the user clicks the submit button
+		 }
+		 else if (submitButton.attachEvent) {
+			submitButton.attachEvent("onclick", calcArtPrice); //Calls the calcArtPrice function everytime the user clicks the submit button
+		 }
+
+   </script>
+		</main>
+		</div>
+		<footer>
+		<!--copyright & contact info-->
+			<p>
+				<br>
+				Copyright &copy; 2016 Catikia<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:Catikia1@gmail.com">gmail</a>
+			</p>
+		</footer>
+		<script src="jquery-1.11.1.js"></script>
+		<script src="nav.js"></script>
+	</div>
+
+	</body>
+</html>
