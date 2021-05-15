@@ -1,0 +1,556 @@
+/*  Valentine's Art Gallery
+	Author: Catikia
+	Date: 12/01/2016
+	*/
+@media only screen and (max-width: 768px) {
+	/*configures website for smartphones*/
+	header { /*configures the banner area at the top of the page*/
+		background-color: #333300;
+		text-align: Left;
+		height: 150px;
+		background-image: none;
+		display: block;
+	}
+	nav a {
+		display: block;
+		width: auto;
+		border-bottom: 1px #cc9900;
+		white-space: normal;
+		font-size: 20px;
+		text-align: left;
+	}
+	h2 {
+		padding-top: 0.5em;
+		padding-right: 0;
+		padding-bottom: 0;
+		padding-left: 0.5em;
+		margin-right: 0.5em;
+	}
+	floatright {
+		display: none;
+	}
+	floatleft {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+@media only screen and (max-width:1024px) {
+	/*configures website for media (tablets and other non-traditional computers)*/
+	body {
+		margin: 0;
+		background-image: none;
+	}
+	wrapper { /*configures main background area of page*/
+		width: auto;
+		min-width: 0;
+		margin: 0;
+		box-shadow: none;
+	}
+	header { /*configures the banner area at the top of the page*/
+		background-color: #333300;
+		text-align: Left;
+		height: 150px;
+		background-image: url(images/bannerMobile.jpg);
+		background-repeat: no-repeat;
+		background-position: Left;
+		display: block;
+	}
+	nav {
+		clear: background-image;
+		background-color: #333300;
+		float: none;
+		padding-top: 0;
+		margin-top: 0;
+		font-size: 20px;
+		margin: 0;
+		height: 50px;
+	}
+	nav ul {
+		list-style-type: none;
+	}
+	nav li {
+		display: inline-block;
+
+	}
+	nav a {
+		text-decoration: none;
+		padding-right: 10px;
+		padding: 1px;
+		width: auto;
+		border-style: none;
+		text-align: left;
+	}
+	main {
+		padding: 2em;
+		margin: 0;
+		font-size: 90%;
+	}
+}
+body {
+	/*changes colors and fonts of page*/
+	background-color: #333333; /* displays color behind/next to page elements */
+	color: #000000;
+	font-family: Verdana;
+}
+header { /*configures the banner area at the top of the page*/
+	background-color: #999999;
+	text-align: left;
+	height: 200px;
+	background-image: url(images/banner.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+h1 { /*Hides the text for the header or banner area*/
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+h2 {
+	text-transform: uppercase;
+	background-color: #990000;
+	color: #ffcc00;
+	font-size: 1.2em;
+	border-bottom: 2px solid #cc9900;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 20px;
+	clear: left;
+}
+h3 { /* headings for 4 column page */
+	background-color: #990000;
+	color: #ffcc00;
+	font-size: 1.2em;
+	text-align: justify;
+	border-bottom: 2px solid #cc9900;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 20px;
+	clear: left;
+}
+h4 a:link{ /* configures text shown for email on contact page */
+	color: #990000;
+	font-size: 1.2em;
+	padding: 5px 5px 5px 5px;
+	clear: left;
+}
+#errorMessage {
+	font-size: 1.2em;
+	text-align: justify;
+	color: #cc0000;
+}
+/*nav menu configuration*/
+
+#cssmenu a:visited { /* configures nav link text after it has been clicked on. - 1st row */
+	color: #cc9900;
+}
+#cssmenu a:hover { /* configures nav link text on mouse-over - 1st row */
+	color: #ffcc00;
+	background: #990000;
+}
+#cssmenu { /* sets menu properties */
+	padding: 0;
+	margin: 0;
+	border: 0;
+	border-bottom: 4px solid #cc9900;
+	font-family: Jokerman, Comic Sans MS, sans-serif;
+	font-size: 30px;
+}
+	#cssmenu > ul { /* makes ie7 like the floats used */
+		*display: inline-block;
+	}
+	#cssmenu:after { /* clears floats */
+    content: '';
+    display: block;
+    clear: both;
+}
+	#cssmenu ul:after { /* clears floats */
+    content: '';
+    display: block;
+    clear: both;
+}
+#cssmenu ul, #cssmenu li {list-style: none; margin: 0; padding: 0;}
+#cssmenu ul {
+	position: relative;
+	z-index: 597; /* Specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order. */
+	text-transform: uppercase;
+}
+#cssmenu ul li { float: left; min-height: 1px; vertical-align: middle; position: relative;/*******moved position here for jquery to work correctly**********/}
+#cssmenu ul li.hover,
+#cssmenu ul li:hover { z-index: 599; /*cursor: default;********************removed css dropdown and used jquery***********************/}
+#cssmenu ul ul { /* sets menu properties */
+	/*visibility: hidden; **********************************************************removed css dropdown and used jquery********************************/
+	position: absolute;
+	top: 100%;
+	/*left: 0;**********************************************removed css dropdown and used jquery****************************************/
+	z-index: 598;
+	/*width: 100%;**********************************************removed css dropdown and used jquery********************************/
+	border-top: 4px solid #cc9900;
+    text-transform: none;
+    min-width: 190px;
+	font-size: 20px;
+}
+#cssmenu ul ul.show {
+   display: block;
+}
+#cssmenu ul ul li { /* sets menu properties */
+	float: none;
+	position: relative
+}
+/*#cssmenu ul ul ul { /* sets menu properties  - extra incase needed for nav
+	top: 0;
+	left: auto;
+	right: -99.5%;
+	border-top: 0 none;
+}*/
+/*#cssmenu ul li:hover > ul { visibility: visible;}************************************removed css dropdown and used jquery******************************/
+#cssmenu ul ul {bottom: 0; left: 0;}
+#cssmenu ul ul {margin-top: 0; }
+#cssmenu ul ul li {font-weight: normal;}
+#cssmenu a { /* sets menu link properties */
+	display: block;
+	line-height: 1em;
+	text-decoration: none;
+    color: #cc9900; /* sets color of top level nav menu */
+    padding: 0 26px;
+}
+#cssmenu ul ul a { /* sets dropdown menu link properties */
+        background: #333300; /*sets background color on drop-down nav menu */
+        color: #cc9900; /*sets text color on drop-down nav menu */
+        border: 1px solid #cc9900;
+        border-top: 0 none;
+        line-height: 150%;
+        padding: 16px 20px;
+}
+#cssmenu > ul > li > a { /* sets a line-height */
+	line-height: 46px;
+}
+#cssmenu ul ul li:hover > a { background: #990000; }
+#cssmenu ul ul li:last-child > a { /* puts a border/shadow on bottom dropmenu item */
+          border-radius: 0 0 3px 3px;
+          box-shadow: 0 1px 0 #cc9900;
+}
+#cssmenu ul ul li:last-child:hover > a { border-radius: 0 0 0 3px; }/* puts a border on bottom dropmenu item when hovering */
+/*#cssmenu ul ul li.has-sub > a:after { /* adds a > sign on any menu item that has a submenu item - extra incase needed for nav
+          content: '>';
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          margin-top: -8px;
+}*/
+#cssmenu ul li:hover > a { /* sets background for dropdown menu item that cursor hovers over */
+      background: #990000;
+      color: #ffcc00;
+}
+#cssmenu ul li.active > a { /* highlights current page on nav menu */
+      background: #990000;
+      color: #ffcc00;
+}
+#cssmenu ul li.has-sub > a:after { /* adds a > sign on any menu item that has a submenu item */
+      content: '>';
+      margin-left: 5px;
+}
+/*#cssmenu ul li.last ul { /* adds ability for submenu items to reverse directions if it is going to be cut off the page - extra incase needed for nav
+      left: auto;
+      right: 0;
+}*/
+/*#cssmenu ul li.last ul ul { /* adds ability for submenu items to reverse directions if it is going to be cut off the page - extra incase needed for nav
+        left: auto;
+        right: 99.5%;
+}*/
+/* ------------------------end nav config--------------------- */
+
+main {
+	display: block;
+
+}
+#unorderedlist ul { /*cover list formatting */
+	list-style-type: none;
+
+}
+#song{ /*cover list formatting */
+	display: block;
+	font-style: italic;
+	font-weight: bold;
+	background-color: #cccccc;
+	text-align: left;
+	color: #000000;
+}
+#desc { /*cover list formatting */
+	display: block;
+	font-style: normal;
+	background-color: #cccccc;
+	font-weight: lighter;
+	text-align: left;
+	color: #333333;
+}
+main ul {
+	list-style-type: none;
+}
+main li {
+	display: inline-block;
+	width: 300px;
+	padding-bottom: 10px;
+	margin: 10px;
+	background-color: #333300;
+	text-align: center;
+	color: #ffffff;
+	font-style: italic;
+	font-family: Comic Sans MS, Jokerman, sans-serif;
+}
+footer { /* configures bottom of page */
+	background-color: #990000;
+	color: #ffcc00;
+	font-size: 12px;
+	font-style: italic;
+	text-align: center;
+	margin: 1px; /* Shows border */
+	padding: 10px;
+	display: block;
+}
+#wrapper { /*configures main background area of page*/
+	min-width: 700px;
+	max-width: 1024px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #333300; /*this color is displayed on the navigation and footer*/
+	box-shadow: 5px 5px 5px #1e1e1e
+}
+img {
+	border: none;
+}
+#fullcol { /*configures 1 column page main area */
+	background-color: #cccccc;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #000000;
+	overflow: auto;
+}
+#containerleft { /*left column background configuration - 4 column page*/
+	float: left;
+	width: 100%;
+	position: relative;
+	right: 25%;
+	background-color: #cccccc;
+	border-right: 2px solid #cc9900;
+}
+#containermiddleleft {/*middle left column background configuration - 4 column page*/
+	clear: left;
+	float: left;
+	width: 100%;
+	position: relative;
+	right: 25%;
+	background-color: #cccccc;
+	border-right: 2px solid #cc9900;
+}
+#containermiddleright { /*middle right column background configuration - 4 column page*/
+	clear: left;
+	float: left;
+	width: 100%;
+	position: relative;
+	right: 25%;
+	background-color: #cccccc;
+	border-right: 2px solid #cc9900;
+}
+#containerright {/*right column background configuration - 4 column page*/
+	clear: left;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	background-color: #cccccc;
+}
+
+#leftcolumn { /* left column configuration*/
+	float: left;
+	width: 21%;
+	position: relative;
+	left: 77%;
+	overflow: hidden;
+}
+#middleleftcolumn { /*middle left column configuration*/
+	float: left;
+	width: 21%;
+	position: relative;
+	left: 81%;
+	overflow: hidden;
+}
+#middlerightcolumn { /*middle right column configuration*/
+	float: left;
+	width: 21%;
+	position: relative;
+	left: 85%;
+	overflow: hidden;
+}
+#rightcolumn { /*right column configuration*/
+	float: left;
+	width: 21%;
+	position: relative;
+	left: 89%;
+	overflow: hidden;
+}
+
+/* link formatting */
+a {
+	text-decoration: none;
+	padding-right: 65px;
+}
+a:link {
+	color: #ffcc00;
+}
+a:visited {
+	color: #cc9900;
+}
+a:hover {
+	color: #ffe066;
+}
+/* ordered list formatting */
+#groups ol {
+	background:#cccccc;
+	padding: 10px;
+	display: block;
+	list-style-type: square;
+	list-style-position: inside;
+	text-align: left;
+	Width: 300px;
+}
+#groups ol li {
+	display: block;
+	list-style-type: square;
+	list-style-position: inside;
+	background: #333300;
+    padding: 5px;
+    margin: 10px;
+	text-align: left;
+}
+#groups a:link {
+	color: #cc9900;
+	font-weight: bold;
+}
+#groups a:visited {
+	color: #cc9900;
+	font-weight: bold;
+}
+#groups a:hover {
+	color: #ff6633;
+}
+
+/* -------------------------- */
+#floatleft {
+	float: left;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+
+#floatright {
+	float: right;
+	padding-left: 15px;
+}
+
+/*-For Favorite Art Page-*/
+/* profile section */
+#profile {
+   float: right;
+   width: 279px;
+   border: 1px solid black;
+   background: white;
+   padding: 20px;
+   background: rgb(216,217,219);
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+}
+
+#profile, #favArtSection {
+   display: none;
+}
+
+#profile li, #profile p {
+   text-indent: 1em;
+   margin-top: 5px;
+}
+
+/* form */
+form {
+   width: 441px;
+   float: left;
+}
+
+fieldset.text, fieldset.checks {
+   position: relative;
+   padding: 5px 30px 5px 0;
+   margin-right: 15px;
+}
+
+legend {
+   font-weight: bold;
+   font-size: 18px;
+   text-align: left;
+   padding-left: 1.4em;
+   margin-bottom: 0.5em;
+}
+
+legend span {
+   text-align: right;
+}
+
+input, label {
+   position: relative;
+   line-height: 1.2em;
+   display: block;
+}
+
+fieldset.checks input {
+   float: left;
+   clear: left;
+   margin-right: 5px;
+   margin-left: 5em;
+   font-size: 18px;
+}
+
+fieldset.checks label {
+   line-height: 1.2em;
+   margin-bottom: 4px;
+}
+
+fieldset.text label {
+   width: 10em;
+   text-align: right;
+   float: left;
+   clear: left;
+   margin: 5px 10px 0 0;
+   font-weight: bold;
+   font-size: 18px;
+}
+
+fieldset.text input {
+   margin: 7px 5px 0 0;
+}
+
+input[type=button] {
+   margin: 15px auto 0;
+   font-size: 16px;
+   background: rgb(202,230,233);
+   width: 9em;
+}
+
+p.errorMsg {
+   display: none;
+   color: red;
+   text-align: center;
+}
+
+/* apply a natural box layout model to all elements */
+* {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+/* map */
+
+#map {
+   width: 100%;
+   min-height: 200px;
+   margin: 10px 0;
+}
